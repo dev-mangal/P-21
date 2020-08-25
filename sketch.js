@@ -16,15 +16,14 @@ function setup() {
 function draw() {
   background(0);
   bullet.collide(wall);
-  if(bullet.isTouching(wall)){
+  if(wall.x-bullet.x<wall.width/2+bullet.width/2){
+  bullet.velocityX=0;
   damage=(0.5*weight*speed*speed)/(thickness*thickness*thickness);
   if(damage>10){
     wall.shapeColor="red";
-    bullet.velocityX=0;
   }
   else if(damage<10) {
     wall.shapeColor="green";
-    bullet.velocityX=0;
   }
 }
   drawSprites();
